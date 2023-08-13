@@ -1,3 +1,11 @@
+import { movies } from "../Data/MovieData";
+
+localStorage.setItem("movies", JSON.stringify(movies));
+JSON.parse(localStorage.getItem("star")).length === 0 &&
+  localStorage.setItem("star", JSON.stringify([]));
+JSON.parse(localStorage.getItem("star")).length === 0 &&
+  localStorage.setItem("watchList", JSON.stringify([]));
+
 const INITIALSTATE = {
   movieData: JSON.parse(localStorage.getItem("movies")),
   updatedMovieData: JSON.parse(localStorage.getItem("movies")),
@@ -74,6 +82,7 @@ const MovieReducer = (state, { type, payload }) => {
       };
     }
     case "HANDLE__ADD__TO__watchList": {
+      localStorage.removeItem("watchList");
       const result = [...state.watchList, payload];
       localStorage.setItem("watchList", JSON.stringify(result));
       return {

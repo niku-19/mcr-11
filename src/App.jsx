@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { movies } from "./Data/MovieData";
 import { Routes, Route } from "react-router-dom";
 import MovieListingPage from "./Pages/MovieListing/MovieListingPage";
 import Navbar from "./Components/Navbar/Navbar";
@@ -10,20 +8,6 @@ import WatchList from "./Pages/Watchlist/WatchList";
 import AddNewMovie from "./Pages/Add new/AddNewMovie";
 
 function App() {
-  useEffect(() => {
-    localStorage.setItem("movies", JSON.stringify(movies));
-    localStorage.setItem("star", JSON.stringify([]));
-    localStorage.setItem("watchList", JSON.stringify([]));
-  }, []);
-
-  if (!localStorage.getItem("movies")) {
-    localStorage.setItem("movies", JSON.stringify(movies));
-    localStorage.setItem("star", JSON.stringify([]));
-    localStorage.setItem("watchList", JSON.stringify([]));
-    window.confirm("no data please refresh");
-    window.reload();
-  }
-
   return (
     <>
       <Navbar />
