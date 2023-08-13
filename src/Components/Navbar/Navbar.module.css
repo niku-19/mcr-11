@@ -1,0 +1,49 @@
+.header {
+  width: 100%;
+  height: 3rem;
+  background-color: #2e2e2e;
+}
+
+.nav {
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand__name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.search__box {
+  width: 30rem;
+  height: 2rem;
+  outline: 1px solid #f2f2f2;
+  border-radius: 0.3rem;
+}
+
+.inp {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0rem 1rem;
+}
+
+.ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.ul li {
+  color: #ffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

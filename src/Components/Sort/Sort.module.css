@@ -1,0 +1,17 @@
+.sort__container {
+  width: 100%;
+  height: max-content;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  color: #f2f2f2;
+  background-color: #2e2e2e;
+}

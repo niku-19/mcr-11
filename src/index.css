@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  background-color: whitesmoke;
+  color: #2e2e2e;
+}
+
+a {
+  color: inherit;
+}

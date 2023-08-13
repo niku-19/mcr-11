@@ -1,0 +1,28 @@
+.movieLisint__container {
+  width: 100%;
+  height: max-content;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movieListing__grid {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+  gap: 2rem;
+}
+
+.noData__container {
+  width: 90vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noData {
+  font-size: 5rem;
+}
