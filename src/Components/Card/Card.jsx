@@ -4,7 +4,7 @@ import styles from "./Card.module.css";
 import { NavLink } from "react-router-dom";
 
 const Card = ({ movieDatas }) => {
-  const { dispatch } = useMovieContext();
+  const { dispatch, movieData } = useMovieContext();
 
   const handleAddToStar = (data) => {
     dispatch({ type: "HANDLE__ADD__TO__STAR", payload: data });
@@ -13,6 +13,21 @@ const Card = ({ movieDatas }) => {
   const handleAddWatchList = (data) => {
     dispatch({ type: "HANDLE__ADD__TO__watchList", payload: data });
   };
+
+  const handleRemoveToStar = (data) => {
+    dispatch({ type: "HANDLE__REMOVE__TO__STAR", payload: data });
+  };
+  const handleRemoveWatchList = (data) => {
+    dispatch({ type: "HANDLE__REMOVE__TO__WATCHLIST", payload: data });
+  };
+
+  const isAlreadyStar = movieData?.star?.some(
+    (Eachmovie) => Eachmovie.id === movieDatas.id
+  );
+  const isAlreadyWatchList = movieData?.watchList?.some(
+    (Eachmovie) => Eachmovie.id === movieDatas.id
+  );
+  console.log("🚀 ~ file: Card.jsx:20 ~ Card ~ isAlreadyStar:", isAlreadyStar);
 
   return (
     <div className={styles.card}>
@@ -30,15 +45,23 @@ const Card = ({ movieDatas }) => {
       <div className={styles.button__container}>
         <button
           className={styles.btn}
-          onClick={() => handleAddToStar(movieDatas)}
+          onClick={
+            !isAlreadyStar
+              ? () => handleAddToStar(movieDatas)
+              : () => handleRemoveToStar(movieDatas)
+          }
         >
-          star
+          {isAlreadyStar ? "started" : "star"}
         </button>
         <button
           className={styles.btn}
-          onClick={() => handleAddWatchList(movieDatas)}
+          onClick={
+            isAlreadyWatchList
+              ? () => handleRemoveWatchList(movieDatas)
+              : () => handleAddWatchList(movieDatas)
+          }
         >
-          Add To Watchlist
+          {isAlreadyWatchList ? "Added To WatchList" : "Add To WatchList"}
         </button>
       </div>
     </div>

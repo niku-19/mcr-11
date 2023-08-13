@@ -109,6 +109,26 @@ const MovieReducer = (state, { type, payload }) => {
         updatedMovieData: result,
       };
     }
+    case "HANDLE__REMOVE__TO__STAR": {
+      const result = state.star.filter(
+        (eachfilter) => eachfilter.id !== payload.id
+      );
+      localStorage.setItem("star", JSON.stringify(result));
+      return {
+        ...state,
+        star: result,
+      };
+    }
+    case "HANDLE__REMOVE__TO__WATCHLIST": {
+      const result = state.watchList.filter(
+        (eachfilter) => eachfilter.id !== payload.id
+      );
+      localStorage.setItem("star", JSON.stringify(result));
+      return {
+        ...state,
+        watchList: result,
+      };
+    }
 
     default:
       return state;

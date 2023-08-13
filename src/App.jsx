@@ -17,10 +17,11 @@ function App() {
   }, []);
 
   if (!localStorage.getItem("movies")) {
-    alert("no data please refresh once");
     localStorage.setItem("movies", JSON.stringify(movies));
     localStorage.setItem("star", JSON.stringify([]));
     localStorage.setItem("watchList", JSON.stringify([]));
+    window.confirm("no data please refresh");
+    window.reload();
   }
 
   return (

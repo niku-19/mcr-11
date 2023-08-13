@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { INITIALSTATE, MovieReducer } from "../Reducer/MovieReducer";
-
+import { movies } from "../Data/MovieData";
 const MovieContext = createContext(null);
 
 const MovieContextProvider = ({ children }) => {
   const [movieData, dispatch] = useReducer(MovieReducer, INITIALSTATE);
-  console.log(
-    "🚀 ~ file: Movie.Context.jsx:10 ~ MovieContextProvider ~ movieData:",
-    movieData
-  );
+  useEffect(() => {
+    localStorage.setItem("movies", JSON.stringify(movies));
+    localStorage.setItem("star", JSON.stringify([]));
+    localStorage.setItem("watchList", JSON.stringify([]));
+  }, []);
   return (
     <MovieContext.Provider value={{ movieData, dispatch }}>
       {children}
